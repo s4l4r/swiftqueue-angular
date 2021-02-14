@@ -1,0 +1,241 @@
+.card {margin-top:20px;
+  /*color: rgb(217, 99, 93) !important;*/
+  color: white;
+  background: rgb(34, 37, 41) !important;
+}
+
+.account-settings .user-profile {
+  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+.account-settings .user-profile .user-avatar {
+  margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+  width: 90px;
+  height: 90px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
+
+.h-10 {
+  width: 100%;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.merchant-card {
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.card:hover {
+  cursor: pointer !important;
+  transition: 0.1s background-color ease-in-out;
+  background-color: rgb(217, 99, 93) !important;
+}
+
+.spinner-border {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.merchant-avatar {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-md-3 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.merchant-avatar img {
+  width: 90px;
+  height: 90px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.account-settings .user-profile h5.user-name {
+  margin: 0 0 0.5rem 0;
+}
+.account-settings .user-profile h6.user-phone {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.account-settings .about {
+  margin: 1rem 0 0 0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.card {
+  background: #272E48;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 0;
+  margin-bottom: 22px;
+}
+
+*:not(.fa) {
+  font-family: Yekan, serif;
+}
+
+.text-primary {
+  color: rgb(217, 99, 93) !important;
+}
+
+.alert {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 1000px) {
+  #mainCard {
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 801px) {
+  .col-md-3, .h-10 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .h-10 > .row > * {
+    width: auto;
+  }
+}
+
+@media only screen and (min-width: 300px)  and (max-width: 450px){
+  .autocomplete {
+    left: 3vh !important;
+    width: 90% !important;
+  }
+
+  .merchant-card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .col-md-3 > h6 {
+    display: block;
+  }
+
+  .col-md-3 {
+    margin-left: auto;
+    margin-right: auto;
+    display: inherit;
+  }
+
+  .card {
+    border-radius: 5px;
+    margin-right: 12px !important;
+    border: 1px solid rgb(217, 99, 93) !important;
+  }
+
+  .sub-list {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .h-10 > .row > * {
+    width: auto;
+  }
+}
+
+.form-control {
+  border-radius: 30px;
+  background: rgb(34, 37, 41) !important;
+  /*color: rgb(217, 99, 93) !important;*/
+  outline: none !important;
+  color: white;
+  border-color: rgb(217, 99, 93) !important;
+}
+
+#search:focus {
+  outline: none !important;
+  border-color: rgb(217, 99, 93);
+  box-shadow: 0 0 0;
+}
+
+.autocomplete {
+  margin-top: 20px;
+  margin-right: 8px;
+  position: absolute;
+  width: 70%;
+  left: 10%;
+  display: none;
+}
+
+.sub-list {
+  border-radius: 5px;
+  position: relative;
+  margin-top: 40px;
+  background-color: rgb(34, 37, 41) !important;
+  text-align: center;
+}
+
+ul {
+  color: rgb(217, 99, 93) !important;
+  list-style: none;
+  width: 100%;
+  top: 100%;
+  z-index: 1000;
+  overflow: hidden;
+  font-size: 12px;
+  max-height: 72.8vh;
+  overflow-y: scroll;
+  background: rgb(34, 37, 41) !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li {
+  display: flex;
+  width: available;
+  min-height: 28px;
+  padding-top: 10px;
+  padding-left: 25px;
+  padding-bottom: 10px;
+  margin-right: 10px;
+  font-size: 18px;
+  z-index: 1000;
+}
+
+.blury {
+  position: absolute;
+  height: 1000%;
+  width: 100%;
+  background-color: rgb(217, 99, 93);
+  margin-top: 19px;
+  left: 0;
+  opacity: 0.95;
+  z-index: 999;
+  transition: 0.3s background-color ease-in-out;
+}
+
+#closeSearch {
+  border-left: 1px solid;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background: rgb(34, 37, 41) !important;
+  color: white;
+  border-color: rgb(217, 99, 93);
+}
+
+.input-group > input {
+  border-left: none !important;
+}
+
+.address > h6 {
+  display: block;
+}

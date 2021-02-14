@@ -1,0 +1,35 @@
+<div dir="ltr" class="input-group">
+  <span class="input-group-text" id="closeSearch"><em id="closeSearchButton" (click)="closeSearch()" style="display: none" class="fa fa-times-circle"></em></span>
+  <label for="search" hidden></label><input #filterInput dir="rtl" tabindex="2" (focusin)="blurBackground()" class="form-control me-2" id="search" type="text" maxlength="20" aria-describedby="closeSearch" (keyup)="searchQueryOnDataSource()" />
+</div>
+<div id="blur">
+  <div class="spinner-border text-dark" role="status" style="display: none !important;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div class="autocomplete" id="autoComplete">
+  <ul class="sub-list">
+    <li *ngFor="let result of resultDataList; trackBy: trackByFn">
+      <div class="card h-10" (click)="selectedResult(result)">
+        <div class="card-body merchant-card row">
+          <div *ngIf="result.id !== 0" class="col-md-3">
+            <div class="merchant-avatar">
+              <img src="{{result.avatarUrl}}" alt="{{result.name}}">
+            </div>
+          </div>
+          <div class="col-md-3 address" style="display: block; align-items: center; justify-items: center;">
+            <div class="row" style="margin-top: 7px;">
+              <h6>{{result.name}}</h6>
+            </div>
+            <div *ngIf="result.id !== 0" class="row">
+              <h6>{{result.address?.street}}-{{result.address.city.name}}</h6>
+            </div>
+            <div class="row">
+              <h6>{{result.address.phoneNumber}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,60 @@
+<div dir="rtl" class="container">
+  <div class="row gutters">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="account-settings">
+            <div *ngIf="!isLoaded" class="spinner-border text-white" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <div *ngIf="isLoaded" class="user-profile">
+              <div class="user-avatar">
+                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="{{user.firstName}}&nbsp;{{user.lastName}}">
+              </div>
+              <h5 class="user-name">{{user.firstName}}&nbsp;{{user.lastName}}</h5>
+              <h6 class="user-phone">{{user.username}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" id="mainCard">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div style="text-align: center;">
+                <label *ngIf="serverError" class="alert alert-danger">مشکل در ذخیره سازی اطلاعات. دوباره سعی کنید</label>
+              </div>
+              <h6 class="mb-3 text-primary">اطلاعات شخصی</h6>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <input tabindex="8" [(ngModel)]="newUser.firstName" type="search" class="form-control" id="firstName" aria-label="FirstName" placeholder="نام">
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" id="lastnameDiv">
+              <div class="form-group">
+                <input tabindex="9" [(ngModel)]="newUser.lastName" type="search" class="form-control" id="lastName" placeholder="نام خانوادگی">
+              </div>
+            </div>
+          </div>
+          <div class="row gutters" style="margin-top: 10px; text-align: center;">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="text-right">
+                <button tabindex="10" id="updateInfo" (keyup.enter)="updateUserInfo()" (click)="updateUserInfo()" class="btn">ذخیره تغییرات</button>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row gutters" style="margin-top: 10px; text-align: center;">
+            <div class="col-md-12">
+              <button tabindex="11" type="button" id="changePhone" name="changePhone" class="btn">تغییر شماره تلفن</button>
+              <button tabindex="12" type="button" id="changePassword" name="changePassword" class="btn">تغییر رمز عبور</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+@font-face {
+  font-family: Yekan;
+  src: local("Yekan"), url("../assets/fonts/Yekan.TTF") format("truetype");
+}
+
+* {
+  font-family: Yekan, serif;
+}

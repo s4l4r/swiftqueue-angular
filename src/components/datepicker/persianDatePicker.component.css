@@ -1,0 +1,65 @@
+:host ::ng-deep .dp-calendar-day.dp-selected {
+  background-color: white !important;
+  border: 1px solid white !important;
+}
+
+:host ::ng-deep .dp-calendar-day.dp-current-day {
+  background-color: rgba(16, 108, 200, 0.5) !important;
+}
+
+:host ::ng-deep .dp-day-calendar-container, :host ::ng-deep .dp-calendar-week, :host ::ng-deep .dp-calendar-day,
+:host ::ng-deep .dp-months-row , :host ::ng-deep .dp-calendar-month, :host ::ng-deep .dp-calendar-wrapper {
+  background: rgb(34, 37, 41) !important;
+  color: rgb(217, 99, 93) !important;
+}
+
+:host ::ng-deep .dp-calendar-day:hover {
+  background: white !important;
+  border-radius: 50px;
+  color: black !important;
+  transition: background-color 0.1s ease-in-out;
+}
+
+:host ::ng-deep .dp-calendar-month.dp-current-month {
+  background: rgba(16, 108, 200, 0.5) !important;
+}
+
+:host ::ng-deep .dp-calendar-month:hover {
+  background: white !important;
+  border-radius: 50px !important;
+  color: black !important;
+  transition: background-color 0.1s ease-in-out;
+}
+
+:host ::ng-deep .dp-calendar-weekday {
+  color: white !important;
+  width: 100% !important;
+}
+
+:host ::ng-deep .dp-calendar-weekday:last-child {
+  color: red !important;
+}
+
+:host ::ng-deep .dp-calendar-nav-left, :host ::ng-deep .dp-calendar-nav-right, :host ::ng-deep .dp-calendar-nav-container {
+  background:  rgb(217, 99, 93) !important;
+}
+
+:host ::ng-deep .dp-current-location-btn {
+  -webkit-box-shadow: inset 0 0 0 3px rgb(217, 99, 93) !important;
+}
+
+:host ::ng-deep .dp-current-location-btn:hover {
+  background-color: white !important;
+  transition: background-color 0.1s ease-in-out;
+}
+
+:host ::ng-deep .dp-nav-header-btn {
+  background-color: rgb(217, 99, 93) !important;
+  color: black !important;
+  border-radius: 5px;
+}
+
+:host ::ng-deep .dp-nav-header-btn:hover {
+  color: white !important;
+  transition: color 0.1s ease-in-out;
+}

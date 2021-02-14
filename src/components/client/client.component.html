@@ -1,0 +1,53 @@
+<div dir="rtl" class="container">
+  <div class="row gutters">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="account-settings">
+            <div *ngIf="!isLoaded" class="spinner-border text-white" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <div *ngIf="isLoaded" class="user-profile">
+              <div class="user-avatar">
+                <img [src]="client.avatarUrl != null ? client.avatarUrl : 'https://bootdey.com/img/Content/avatar/avatar1.png'" [alt]="client.name">
+              </div>
+              <h5 class="client-name">{{client.name}}</h5>
+              <h5 class="client-address">{{client.address.city.name}}&nbsp;&nbsp;-&nbsp;&nbsp;{{client.address.street}}</h5>
+              <h5 class="client-phone">{{client.address.phoneNumber}}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" id="mainCard">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div style="text-align: center;">
+                <label *ngIf="serverError" class="alert alert-danger">مشکل در دریافت اطلاعات. دوباره سعی کنید</label>
+              </div>
+              <div *ngIf="!isLoaded" class="spinner-border text-white" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <h6 class="mb-3 text-primary">صف های زمانبندی شده</h6>
+              <div *ngIf="isLoaded" class="row" style="text-align: center;" id="slotsCard">
+                <div *ngFor="let schedule of client.schedules" class="col-md-3">
+                  <div class="card h-10">
+                    <div class="card-body merchant-card">
+                      <h6><em style="font-size: 12px" class="fa fa-circle-notch"></em>&nbsp;&nbsp;{{schedule.name}}</h6>
+                      <h6 dir="rtl"><em style="font-size: 12px" class="fa fa-calendar"></em>&nbsp;&nbsp;{{schedule.fromDate}}&nbsp;تا&nbsp;{{schedule.toDate}}</h6>
+                      <h6><em style="font-size: 12px" class="fa fa-clock"></em>&nbsp;&nbsp;{{schedule.fromTime}}&nbsp;تا&nbsp;{{schedule.toTime}}</h6>
+                      <h6><em style="font-size: 12px" class="fa fa-hourglass-start"></em>&nbsp;&nbsp;{{schedule.intervalTime}}&nbsp;&nbsp;دقیقه</h6>
+                      <button class="btn bookButton" id="btn-book" (click)="getNextTimeSlot(schedule)">دریافت نوبت</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

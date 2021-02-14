@@ -1,0 +1,31 @@
+<div dir="rtl" class="container">
+  <div dir="rtl" id="addpassbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">اضافه کردن رمز عبور</div>
+      </div>
+      <div class="card-body" >
+        <form id="addpassform" class="form-horizontal" role="form">
+          <div id="addpassalert" style="display:none" class="alert alert-danger">
+            <p>Error:</p>
+            <span></span>
+          </div>
+          <div class="input-group">
+            <input autofocus tabindex="8" [style.border]="passwordBorderStyle" type="password" class="form-control" id="password" name="password" placeholder="رمز عبور" [(ngModel)]="user.password">
+          </div>
+          <label id="errorLabel" class="input-group-text badge bg-danger">{{passwordErrorMessage}}</label>
+          <div class="form-group" style="margin-top: 25px;">
+            <div class="card">
+              <button tabindex="9" id="btn-addpass" class="btn" (keyup.enter)="nextStep()" (click)="nextStep()">مرحله بعد</button>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top: 10px;">
+            <div class="card">
+              <a tabindex="10" dir="rtl" class="btn" id="previousStep" (keyup.enter)="previousStep()" (click)="previousStep()">مرحله قبل</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

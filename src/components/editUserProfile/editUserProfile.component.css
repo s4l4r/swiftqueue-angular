@@ -1,0 +1,115 @@
+.card {margin-top:20px;
+  color: rgb(217, 99, 93) !important;
+  background: rgb(34, 37, 41) !important;
+}
+
+.btn {
+  color: ghostwhite;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px rgb(34, 37, 41) inset !important;
+}
+
+.account-settings .user-profile {
+  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.account-settings .user-profile .user-avatar {
+  margin: 0 0 1rem 0;
+}
+
+.account-settings .user-profile .user-avatar img {
+  width: 90px;
+  height: 90px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
+.account-settings .user-profile h5.user-name {
+  margin: 0 0 0.5rem 0;
+}
+.account-settings .user-profile h6.user-phone {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.account-settings .about {
+  margin: 1rem 0 0 0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.card {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 0;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  border: 1px solid #596280;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 30px;
+  font-size: .825rem;
+  background: rgb(34, 37, 41) !important;
+  color: white;
+}
+
+.form-control:focus {
+  outline: none !important;
+  border-color: rgb(217, 99, 93);
+  box-shadow: 0 0 10px rgb(217, 99, 93);
+}
+
+#changePhone, #changePassword, #updateInfo {
+  background-color: rgb(217, 99, 93);
+  border-radius: 30px;
+}
+
+#changePhone:hover, #changePassword:hover, #updateInfo:hover {
+  color: black !important;
+  transition: color 0.1s ease-in !important;
+}
+
+#firstname:focus, #lastname:focus {
+  outline: none !important;
+  border-color: rgb(217, 99, 93);
+  box-shadow: 0 0 10px rgb(217, 99, 93);
+}
+
+#changePassword {
+  margin-right: 5px;
+}
+
+*:not(.fa) {
+  font-family: Yekan, serif;
+}
+
+.text-primary {
+  color: rgb(217, 99, 93) !important;
+}
+
+.alert {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 1000px) {
+  #mainCard {
+    margin-top: 10px;
+  }
+  #lastnameDiv {
+    margin-top: 5px;
+  }
+}

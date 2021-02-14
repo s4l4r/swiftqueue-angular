@@ -1,0 +1,29 @@
+<nav dir="rtl" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a tabindex="1" class="navbar-brand" href="#"><img id="brand" src="assets/img/logo.png" width="100px" alt="SwiftQueue"></a>
+    <div class="col-md-6 searchForm" id="searchForm">
+      <div class="search-container">
+        <app-auto-suggest></app-auto-suggest>
+      </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span tabindex="3" class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li *ngIf="this.isLoggedIn" class="nav-item">
+          <a tabindex="4" class="nav-link" routerLink="user-profile">حساب کاربری</a>
+        </li>
+        <li *ngIf="this.isLoggedIn" class="nav-item">
+          <a class="nav-link" (click)="logout()" href="#" tabindex="5">خروج</a>
+        </li>
+        <li *ngIf="!this.isLoggedIn" class="nav-item">
+          <a class="nav-link" id="login-btn" routerLink="login" tabindex="6">ورود</a>
+        </li>
+        <li *ngIf="!this.isLoggedIn" class="nav-item">
+          <a class="nav-link" id="signup-btn" routerLink="signup" tabindex="7">ثبت نام</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

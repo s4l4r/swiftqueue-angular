@@ -1,0 +1,33 @@
+*:not(.fa) {
+  font-family: Yekan, serif;
+}
+
+.container {
+  background-color: rgba(15, 76, 129, 0) !important;
+}
+
+.carousel-indicators {
+  position: relative;
+}
+
+.carousel {
+  max-width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50% !important;
+}
+
+/*.carousel-item > img {*/
+/*  margin-left: auto;*/
+/*  margin-right: auto;*/
+/*}*/
+
+.col-md-3 {
+  background-color: rgb(34, 37, 41) !important;
+  color: white;
+  padding: 15px 15px 15px 15px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  width: fit-content;
+}

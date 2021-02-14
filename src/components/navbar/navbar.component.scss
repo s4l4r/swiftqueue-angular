@@ -1,0 +1,84 @@
+.navbar-nav.me-auto.mb-2.mb-lg-0 {
+  text-align: center;
+}
+
+*:not(.fa) {
+  font-family: Yekan, serif;
+}
+
+.form-control {
+  border: 1px solid #596280;
+  border-radius: 30px;
+  background: rgb(34, 37, 41) !important;
+  color: white;
+}
+
+.navbar-brand, .navbar-toggler-icon {
+  filter: invert(52%) sepia(11%) saturate(6381%) hue-rotate(327deg) brightness(97%) contrast(74%);
+}
+
+.nav-link, .navbar-brand, .navbar-toggler-icon {
+  color: rgb(217, 99, 93) !important;
+  outline: none !important;
+}
+
+.navbar-toggler {
+  outline: none !important;
+  border: none;
+}
+
+.ng-select, .ng-dropdown-panel-items, .ng-dropdown-panel {
+  background-color: white !important;
+}
+
+.nav-link:hover {
+  color: white !important;
+  transition: color 0.1s ease-in !important;
+}
+
+#searchForm {
+  max-width: 50%;
+}
+
+@media only screen and (min-width: 768px) {
+  #searchForm {
+    margin-right: 130px;
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+
+  #login-btn:hover {
+    color: white !important;
+    transition: color 0.1s ease-in !important;
+  }
+
+  #signup-btn {
+    background-color: rgb(217, 99, 93);
+    color: white !important;
+    border-radius: 30px;
+    margin-right: 10px;
+  }
+
+  #signup-btn:hover {
+    color: black !important;
+    transition: color 0.1s ease-in !important;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  #searchForm {
+    max-width: 30%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #brand {
+    width: 70px !important;
+  }
+
+  #searchForm {
+    max-width: 42%;
+  }
+}

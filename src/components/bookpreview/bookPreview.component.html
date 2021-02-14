@@ -1,0 +1,60 @@
+<div dir="rtl" class="container">
+  <div class="row gutters">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="account-settings">
+            <div *ngIf="!isLoaded" class="spinner-border text-white" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <div *ngIf="isLoaded" class="user-profile">
+              <div class="user-avatar">
+                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="{{client.name}}">
+              </div>
+              <h5 class="client-name">{{client.name}}</h5>
+              <h5 class="client-address">{{client.address.city.name}}&nbsp;&nbsp;-&nbsp;&nbsp;{{client.address.street}}</h5>
+              <h5 class="client-phone">{{client.address.phoneNumber}}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" id="mainCard">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div style="text-align: center;">
+                <label *ngIf="serverError" class="alert alert-danger">مشکل در ارتباط با سرور. دوباره سعی کنید</label>
+              </div>
+              <div *ngIf="!isLoaded" class="spinner-border text-white" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <h6 class="mb-3 text-primary">تایید رزرو</h6>
+              <div class="success-checkmark">
+                <div class="check-icon" *ngIf="isBooked">
+                  <span class="icon-line line-tip"></span>
+                  <span class="icon-line line-long"></span>
+                  <div class="icon-circle"></div>
+                </div>
+              </div>
+              <div *ngIf="isLoaded" class="row" style="text-align: center;" id="slotsCard">
+                <div class="card h-10">
+                  <div class="card-body merchant-card">
+                    <h6>مرکز ارائه دهنده سرویس:&nbsp;{{client.name}}</h6>
+                    <h6>موضوع:&nbsp;{{timeSlot.schedule.name}}</h6>
+                    <h6>تاریخ:&nbsp;{{timeSlot.date.split('-').join('/')}}</h6>
+                    <h6>ساعت:&nbsp;{{timeSlot.time}}</h6>
+                    <h6>مدت زمان:&nbsp;{{timeSlot.schedule.intervalTime}}</h6>
+                    <button *ngIf="!isBooked" id="btn-book" class="btn bookButton" (click)="bookTimeSlot(timeSlot)">رزرو نوبت</button>
+                    <button *ngIf="isBooked" id="btn-bookings" class="btn bookButton" (click)="myBookings()">نوبت های رزرو شده</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

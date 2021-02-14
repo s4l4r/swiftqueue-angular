@@ -1,0 +1,65 @@
+#signupform > .input-group {
+  margin-bottom: 5px;
+  direction: ltr;
+}
+
+#signupform > .input-group > input {
+  direction: rtl;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.btn {
+  color: ghostwhite;
+}
+
+#signupbox > .card {
+  text-align: center;
+}
+
+#signupbox {
+  text-align: center;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.form-control {
+  border: 1px solid #596280;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 30px;
+  font-size: .825rem;
+  background: rgb(34, 37, 41) !important;
+  color: white;
+}
+
+#errorLabel {
+  white-space: normal !important;
+}
+
+*:not(.fa) {
+  font-family: Yekan, serif;
+}
+
+.card {
+  border: none;
+  background-color: rgb(34, 37, 41) !important;
+  color: white;
+}
+
+#previousStep, #btn-signup {
+  background-color: rgb(217, 99, 93);
+  border-radius: 30px;
+  color: white;
+}
+
+#previousStep:hover, #btn-signup:hover {
+  color: black !important;
+  transition: color 0.1s ease-in !important;
+}
+
+#phoneNumber:focus {
+  outline: none !important;
+  border-color: rgb(217, 99, 93);
+  box-shadow: 0 0 10px rgb(217, 99, 93);
+}

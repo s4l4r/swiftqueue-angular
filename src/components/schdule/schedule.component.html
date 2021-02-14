@@ -1,0 +1,35 @@
+<div dir="rtl" class="container">
+  <div class="row gutters">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="account-settings">
+            <div class="user-profile">
+              <div class="user-avatar">
+                <img [src]="client.avatarUrl != null ? client.avatarUrl : 'https://bootdey.com/img/Content/avatar/avatar1.png'" [alt]="client.name">
+              </div>
+              <h5 class="client-name">{{client.name}}</h5>
+              <h6 class="client-address">{{client.address.street}}-{{client.address.city.name}}</h6>
+              <h6 class="client-phone">{{client.address.phoneNumber}}</h6>
+              <h6 class="schedule-name">{{schedule.name}}</h6>
+              <h6 class="schedule-date">{{schedule.fromDate}}&nbsp;&nbsp;تا&nbsp;&nbsp;{{schedule.toDate}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" id="mainCard">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div style="text-align: center;">
+                <label *ngIf="serverError" class="alert alert-danger">مشکل در ارتباط با سرور. دوباره سعی کنید</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
