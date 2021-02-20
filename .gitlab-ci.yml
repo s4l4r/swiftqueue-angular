@@ -1,5 +1,5 @@
 variables:
-  $PROJECT_TO_DEPLOY: swiftqueue-angular
+  PROJECT_TO_DEPLOY: swiftqueue-angular
 
 stages:
   - docker
