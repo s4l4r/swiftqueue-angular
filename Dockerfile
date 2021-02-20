@@ -1,8 +1,8 @@
 #Stage 1
-FROM node:10-alpine as build-step
-RUN mkdir -p /app
+FROM node:10.13.0-stretch as build-step
 WORKDIR /app
-COPY package.json /app
+COPY package*.json /app/
 RUN npm install --aot=false
-COPY . /app
-RUN npm run prod
+COPY ./ /app/
+ARG configuration=production
+RUN ng build --prod --aot=false --build-optimizer=false
