@@ -19,8 +19,8 @@ export class RegisterClientComponent implements AfterViewInit {
   client = new Client();
   isLoaded = false;
   serverError = false;
-  provinces: Observable<Array<Select2OptionData>>;
-  cities: Observable<Array<Select2OptionData>>;
+  provinces: Observable<Array<Select2OptionData>> = new Observable<Array<Select2OptionData>>();
+  cities: Observable<Array<Select2OptionData>> = new Observable<Array<Select2OptionData>>();
   selectedValue: Observable<Select2OptionData> = new Observable<Select2OptionData>();
   nameStyle = ''; phoneStyle = ''; cityStyle = ''; streetStyle = ''; numberStyle = '';
 
@@ -115,7 +115,7 @@ export class RegisterClientComponent implements AfterViewInit {
       this.router.navigate(['/client/' + clientId]).then(() => $('#createClient').html('ثبت اطلاعات'));
     } else {
       this.serverError = true;
-      $('#createClient').html('ثبت اطلاعات')
+      $('#createClient').html('ثبت اطلاعات');
     }
   }
 }
