@@ -5,5 +5,5 @@ COPY package*.json /app/
 RUN npm install --aot=false
 COPY ./ /app/
 ARG configuration=production
-RUN npm ng build --prod --aot=false --build-optimizer=false
+RUN npm run build --prod --aot=false --build-optimizer=false
 ENTRYPOINT ["npm", "run", "prod"]
