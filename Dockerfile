@@ -6,4 +6,4 @@ RUN npm install --aot=false
 COPY ./ /app/
 ARG configuration=production
 RUN npm run build --prod --aot=false --build-optimizer=false
-ENTRYPOINT ["ng", "serve", "--prod", "--host", "0.0.0.0"]
+ENTRYPOINT ["node_modules/.bin/ng", "serve", "--prod", "--host", "0.0.0.0"]
