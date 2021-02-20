@@ -5,4 +5,4 @@ WORKDIR /app
 COPY package.json /app
 RUN npm install --aot=false
 COPY . /app
-RUN npm run build --prod --aot=false
+RUN npm run prod
