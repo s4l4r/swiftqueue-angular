@@ -31,8 +31,8 @@ export class ClientComponent {
           this.client.schedules.forEach(schedule => {
             schedule.fromDate = schedule.fromDate.split('-').join('/');
             schedule.toDate = schedule.toDate.split('-').join('/');
-            this.isLoaded = true;
           });
+          this.isLoaded = true;
         }, () => {
           this.serverError = true;
           this.isLoaded = true;

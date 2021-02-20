@@ -29,7 +29,7 @@ export class AddPassComponent {
       '  <span class="visually-hidden">Loading...</span>\n' +
       '</div>');
     if (!this.regexp.test(this.user.password)) {
-      this.passwordBorderStyle = '1px solid red';
+      this.passwordBorderStyle = 'border-color: red';
       this.passwordErrorMessage = 'رمز عبور باید حداقل ۸ کاراکتر و شامل یک حرف و یک عدد باشد';
       nextButton.html('مرحله بعد');
       return;

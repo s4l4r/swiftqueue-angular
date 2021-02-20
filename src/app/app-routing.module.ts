@@ -12,6 +12,7 @@ import {InfoComponent} from '../components/info/info.component';
 import {ClientComponent} from '../components/client/client.component';
 import {ScheduleComponent} from '../components/schdule/schedule.component';
 import {BookPreviewComponent} from '../components/bookpreview/bookPreview.component';
+import {RegisterClientComponent} from '../components/registerClient/registerClient.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'client/:id', component: ClientComponent },
   { path: 'schedule/:clientId/:id', component: ScheduleComponent },
   { path: 'booking-preview', component: BookPreviewComponent },
+  { path: 'register-client', component: RegisterClientComponent }
   ];
 
 @NgModule({

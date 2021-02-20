@@ -26,20 +26,22 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {AutoSuggestComponent} from '../components/autosuggest/autoSuggest.component';
 import {ClientComponent} from '../components/client/client.component';
 import {ScheduleComponent} from '../components/schdule/schedule.component';
-import {DatePickerComponent, DpDatePickerModule} from 'ng2-jalali-date-picker';
-import {DatePickerService} from 'ng2-jalali-date-picker/date-picker/date-picker.service';
+import {DpDatePickerModule} from 'ng2-jalali-date-picker';
 import {PersianDatePickerComponent} from '../components/datepicker/persianDatePicker.component';
 import {BookPreviewComponent} from '../components/bookpreview/bookPreview.component';
+import {RegisterClientComponent} from '../components/registerClient/registerClient.component';
+import {NgSelect2Module} from 'ng-select2';
 
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, LoginComponent, NavbarComponent, RegNameComponent, AddPassComponent,
     SignupComponent, ConfirmPassComponent, UserProfileComponent, EditUserProfileComponent, FooterComponent,
-    InfoComponent, AutoSuggestComponent, ClientComponent, ScheduleComponent, PersianDatePickerComponent, BookPreviewComponent
+    InfoComponent, AutoSuggestComponent, ClientComponent, ScheduleComponent, PersianDatePickerComponent, BookPreviewComponent,
+    RegisterClientComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, OAuthModule.forRoot(), NgxUiLoaderModule,
-    CommonModule, NgSelectModule, DpDatePickerModule
+    CommonModule, NgSelectModule, DpDatePickerModule, NgSelect2Module
   ],
   providers: [AppService, NumberConverter, EncryptionService],
   bootstrap: [AppComponent]

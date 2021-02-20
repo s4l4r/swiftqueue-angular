@@ -44,13 +44,13 @@ export class RegNameComponent {
 
   validateName(): boolean {
     if (this.user?.firstName === '' || this.user?.firstName === undefined) {
-      this.firstNameBorderStyle = '3px solid red';
+      this.firstNameBorderStyle = 'border-color: red';
       return false;
     } else {
       this.firstNameBorderStyle = '';
     }
     if (this.user.lastName === '' || this.user.lastName === undefined) {
-      this.lastNameBorderStyle = '3px solid red';
+      this.lastNameBorderStyle = 'border-color: red';
       return false;
     } else {
       this.lastNameBorderStyle = '';

@@ -1,6 +1,43 @@
+:host ::ng-deep .select2-container {
+  width: 100% !important;
+}
+
+:host ::ng-deep .select2-selection {
+  border-radius: 30px !important;
+  background: rgb(34, 37, 41) !important;
+  border: 1px solid #596280;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  font-size: .825rem;
+  color: white;
+  height: 36px !important;
+  outline: none !important;
+}
+
+:host ::ng-deep .select2-selection__rendered {
+  color: white !important;
+  position: absolute !important;
+  top: 4px !important;
+  right: 4px;
+}
+
+:host ::ng-deep .select2-selection__placeholder {
+  margin-right: 3px;
+  color: rgb(110, 117, 124) !important;
+}
+
+:host ::ng-deep .select2-selection__arrow {
+  top: 4px !important;
+  left: 6px !important;
+}
+
 .card {margin-top:20px;
   color: rgb(217, 99, 93) !important;
   background: rgb(34, 37, 41) !important;
+}
+
+.ng-input > input {
+  color: rgb(217, 99, 93) !important;
 }
 
 .btn {
@@ -40,6 +77,16 @@
 .merchant-avatar {
   margin: 0 0 1rem 0;
   text-align: center;
+}
+
+.form-control:focus {
+  outline: none !important;
+  border-color: rgb(217, 99, 93);
+  box-shadow: 0 0 10px rgb(217, 99, 93);
+}
+
+.required:before {
+  content: '*' !important;
 }
 
 .merchant-avatar img {
@@ -116,5 +163,9 @@
     max-width: min-content;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .col-xl-6.col-lg-6.col-md-6.col-sm-6.col-12 {
+    margin-top: 10px;
   }
 }

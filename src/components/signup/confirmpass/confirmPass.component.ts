@@ -41,7 +41,7 @@ export class ConfirmPassComponent {
       '  <span class="visually-hidden">Loading...</span>\n' +
       '</div>');
     if (this.user?.password !== this.confirmPassword) {
-      this.passwordBorderStyle = '1px solid red';
+      this.passwordBorderStyle = 'border-color: red';
       this.passwordErrorMessage = 'رمز عبور یکسان نمی باشد';
       confirmButton.html('ثبت اطلاعات');
       return;

@@ -49,13 +49,13 @@ export class SignupComponent implements OnInit{
 
   validateSignUp(): boolean {
     if (this.user?.username === '' || this.user?.username === undefined) {
-      this.signUpUsernameFieldBorderStyle = '2px solid red';
+      this.signUpUsernameFieldBorderStyle = 'border-color: red';
       return false;
     } else {
       this.signUpUsernameFieldBorderStyle = '';
     }
     if (!this.phoneNumberPattern.test(this.user.username)) {
-      this.signUpUsernameFieldBorderStyle = '2px solid red';
+      this.signUpUsernameFieldBorderStyle = 'border-color: red';
       this.usernameErrorMessage = 'فرمت شماره تلفن 09123456789';
       return false;
     } else {
@@ -74,7 +74,7 @@ export class SignupComponent implements OnInit{
     this.signupError = false;
     if (response.body === true) {
       this.usernameErrorMessage = 'شماره تلفن تکراری است';
-      this.signUpUsernameFieldBorderStyle = '2px solid red';
+      this.signUpUsernameFieldBorderStyle = 'border-color: red';
       $('#btn-signup').html('مرحله بعد');
     } else {
       this.usernameErrorMessage = '';

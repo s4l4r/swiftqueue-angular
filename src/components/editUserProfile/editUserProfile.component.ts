@@ -3,7 +3,6 @@ import {User} from '../../dtos/user/user';
 import {AppService} from '../../app/app.service';
 import {Cookie} from 'ng2-cookies';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-user-profile',
@@ -16,7 +15,7 @@ export class EditUserProfileComponent {
   serverError = false;
   isLoaded = false;
 
-  constructor(private service: AppService, private ngxService: NgxUiLoaderService, private router: Router) {
+  constructor(private service: AppService, private ngxService: NgxUiLoaderService) {
     if (this.ngxService.getLoader() !== null) {
       ngxService.stop();
     }
@@ -30,12 +29,27 @@ export class EditUserProfileComponent {
   }
 
   updateUserInfo(): void {
-    $('#updateInfo').html('<div class="spinner-border text-dark" role="status">\n' +
+    const updateButton = $('#updateInfo');
+    updateButton.html('<div class="spinner-border text-dark" role="status">\n' +
       '  <span class="visually-hidden">Loading...</span>\n' +
       '</div>');
-    this.newUser.id = this.user.id;
+    if (!this.validateInfo()) {
+      updateButton.html('ذخیره تغییرات');
+      return;
+    }
+    this.adjustNewData();
     this.service.putResource('/api/v1/users', this.newUser)
       .subscribe(response => this.handleResponse(response));
+  }
+
+  adjustNewData(): void {
+    this.newUser.id = this.user.id;
+    this.newUser.firstName = this.newUser.firstName === '' || this.newUser.firstName === undefined
+      ? this.user.firstName
+      : this.newUser.firstName;
+    this.newUser.lastName = this.newUser.lastName === '' || this.newUser.lastName === undefined
+      ? this.user.lastName
+      : this.newUser.lastName;
   }
 
   handleResponse(updateResponse: any): void {
@@ -51,5 +65,10 @@ export class EditUserProfileComponent {
       this.serverError = true;
       $('#updateInfo').html('ذخیره تغییرات');
     }
+  }
+
+  validateInfo(): boolean {
+    return !((this.newUser.firstName === '' || this.newUser.firstName === undefined) &&
+      (this.newUser.lastName === '' || this.newUser.lastName === undefined));
   }
 }
