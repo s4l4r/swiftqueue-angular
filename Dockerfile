@@ -6,4 +6,4 @@ RUN npm install --aot=false
 COPY ./ /app/
 ARG configuration=production
 RUN npm ng build --prod --aot=false --build-optimizer=false
-ENTRYPOINT["npm", "run", "prod"]
+ENTRYPOINT ["npm", "run", "prod"]
