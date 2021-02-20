@@ -18,5 +18,14 @@ docker:
     - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile Dockerfile --destination swiftqueuetest/$PROJECT_TO_DEPLOY:$CI_COMMIT_SHA
   only:
     - master
+deploy:
+  stage: deploy
+  image: google/cloud-sdk:latest
+  script:
+    - gcloud auth activate-service-account --key-file $GOOGLE_SERVICE_ACCOUNT_FILE
+    - gcloud container clusters get-credentials gcloud-cluster --project=swiftqueue-305414 --zone=europe-west1-b
+    - kubectl -n swiftqueue set image deployment/swiftqueue swiftqueue=swiftqueuetest/$PROJECT_TO_DEPLOY:$CI_COMMIT_SHA
+  only:
+    - master
 
 
