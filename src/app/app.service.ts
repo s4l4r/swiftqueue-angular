@@ -8,7 +8,7 @@ import {EncryptionService} from '../util/EncryptionService';
 
 @Injectable()
 export class AppService {
-  SERVER_BASE_URL = 'http://192.168.2.69:8080';
+  SERVER_BASE_URL = 'http://swiftqueue';
   USER_SIGNUP_TOKEN = 'TjWnZr4u7x!A%D*G-KaNdRgUkXp2s5v8y/B?E(H+MbQeShVmYq3t6w9z$C&F)J@N';
   SWIFT_QUEUE_AUTHORIZATION_HEADER_NAME = 'SWIFT_QUEUE_AUTHORIZATION';
   constructor(private router: Router, private http: HttpClient, private ngxService: NgxUiLoaderService,

@@ -1,0 +1,22 @@
+variables:
+  $PROJECT_TO_DEPLOY: swiftqueue-angular
+
+stages:
+  - docker
+  - deploy
+
+docker:
+  stage: docker
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  before_script:
+    - echo $PROJECT_TO_DEPLOY:$CI_COMMIT_SHA
+    - cp $KANIKO_CONFIG_JSON /kaniko/.docker/config.json
+    - DIRECTORY=dir:///builds/swift-queue/$CI_PROJECT_NAME
+  script:
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile Dockerfile --destination swiftqueuetest/$PROJECT_TO_DEPLOY:$CI_COMMIT_SHA
+  only:
+    - master
+
+
