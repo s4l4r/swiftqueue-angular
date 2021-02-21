@@ -8,12 +8,12 @@
   margin-top: 20px !important;
 }
 
-.bookButton:hover {
+.bookButton:hover, #createSchedule:hover {
   color: rgb(34, 37, 41);
   transition: 0.1s color ease-in-out;
 }
 
-.bookButton {
+.bookButton, #createSchedule {
   background-color: rgb(217, 99, 93) !important;
   border-radius: 30px;
 }

@@ -6,6 +6,7 @@ import {Schedule} from '../../dtos/schedule/schedule';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {take} from 'rxjs/operators';
 import $ from 'jquery';
+import {User} from '../../dtos/user/user';
 
 @Component({
   selector: 'app-client',
@@ -14,6 +15,7 @@ import $ from 'jquery';
 })
 export class ClientComponent {
   client = new Client();
+  user = new User();
   serverError = false;
   isLoggedIn = false;
   isLoaded = false;
@@ -42,6 +44,9 @@ export class ClientComponent {
 
   updateLoginStatus(isLoggedIn: boolean): void {
     this.isLoggedIn = isLoggedIn;
+    if (this.isLoggedIn) {
+      this.service.getCurrentLoggedInUser().subscribe(response => this.user = response.body);
+    }
   }
 
   getNextTimeSlot(schedule: Schedule): void {
