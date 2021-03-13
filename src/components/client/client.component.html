@@ -14,7 +14,6 @@
               <h5 class="client-name">{{client.name}}</h5>
               <h5 class="client-address">{{client.address.city.name}}&nbsp;&nbsp;-&nbsp;&nbsp;{{client.address.street}}</h5>
               <h5 class="client-phone">{{client.address.phoneNumber}}</h5>
-              <!--<h5 *ngIf="client.userInfo.id === user.id" class="client-edit-buttom">اصلاح</h5>-->
             </div>
             <div *ngIf="client.userInfo.id === user.id" style="text-align: center; margin-top: 10px;">
               <a class="btn" id="createSchedule" routerLink="/register-client">ثبت زمانبندی جدید</a>
