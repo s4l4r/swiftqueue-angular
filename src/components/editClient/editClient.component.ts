@@ -8,6 +8,7 @@ import {map} from 'rxjs/operators';
 import {SelectOption} from '../../dtos/util/SelectOption';
 import $ from 'jquery';
 import {Router} from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register-client',
@@ -25,7 +26,6 @@ export class EditClientComponent implements AfterViewInit {
   nameStyle = ''; phoneStyle = ''; cityStyle = ''; streetStyle = ''; numberStyle = '';
 
   constructor(private service: AppService, private refChange: ChangeDetectorRef, private router: Router) {
-    this.service.checkCredentials();
     this.cities = new Observable<Array<Select2OptionData>>();
     this.provinces = this.service.getResourceAsync('/api/v1/provinces/all', false)
       .pipe(map((values: any) => values.body.map((value: any) => {
@@ -38,6 +38,7 @@ export class EditClientComponent implements AfterViewInit {
       this.serverError = true;
       this.isLoaded = true;
     });
+    this.client = history.state.client;
   }
 
   ngAfterViewInit(): void {
@@ -69,7 +70,7 @@ export class EditClientComponent implements AfterViewInit {
       return;
     }
     this.client.userInfo = this.user;
-    this.service.postResource('/api/v1/editClients', this.client, true)
+    this.service.postResource('/api/v1/clients', this.client, true)
       .subscribe(response => this.handleCreateClientResponse(response), error => this.handleCreateClientResponse(error));
   }
 

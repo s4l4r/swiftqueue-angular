@@ -71,4 +71,8 @@ export class ClientComponent {
   getAvailableTimeSlotsCount(schedule: Schedule): number {
     return schedule.timeSlots.filter(i => !i.reserved).length;
   }
+
+  updateClientInformations(): void {
+    this.router.navigate(['/edit-client'], {state: {client: this.client}}).then(r => r);
+  }
 }

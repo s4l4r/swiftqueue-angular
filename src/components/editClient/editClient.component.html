@@ -29,27 +29,46 @@
               <div *ngIf="!isLoaded" class="spinner-border text-white" role="status">
                 <span class="visually-hidden">Loading...</span>
               </div>
-              <h6 class="mb-3 text-primary">اصلاح پروفایل کاربری</h6>
+              <h6 class="mb-3 text-primary">اصلاح مرکز ارائه دهنده سرویس</h6>
               <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div class="form-group">
-                    <input tabindex="8" [style]="nameStyle" [(ngModel)]="user.firstName" type="search" class="form-control" id="name" aria-label="Name" placeholder="نام">
+                    <input tabindex="8" [style]="nameStyle" [(ngModel)]="client.name" type="search" class="form-control" id="name" aria-label="Name" placeholder="نام">
                   </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div class="form-group">
-                    <input tabindex="8" [style]="nameStyle" [(ngModel)]="user.lastName" type="search" class="form-control" id="lastName" aria-label="LastName" placeholder="نام خانوادگی">
+                    <input tabindex="8" [style]="phoneStyle" [(ngModel)]="client.address.phoneNumber" type="search" class="form-control" id="phoneNumber" aria-label="PhoneNumber" placeholder="شماره تلفن">
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 10px;">
+                <div class="col-xl-6 ol-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <ng-select2 tabindex="8" dir="rtl" [(ngModel)]="client.address.city.province.id" (valueChanged)="loadCities($event)" [data]="provinces | async" placeholder="استان"></ng-select2>
                   </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div class="form-group">
-                    <input tabindex="8" [style]="phoneStyle" [(ngModel)]="user.username" type="search" class="form-control" id="phoneNumber" aria-label="PhoneNumber" placeholder="شماره تلفن">
+                    <ng-select2 tabindex="8" dir="rtl" (valueChanged)="updateSelectedCity($event)" [(ngModel)]="client.address.city.id" [data]="cities | async" id="city" placeholder="شهر" required></ng-select2>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 10px;">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <input tabindex="8" [style]="streetStyle" [(ngModel)]="client.address.street" type="search" class="form-control" id="street" aria-label="Street" placeholder="خیابان">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <input tabindex="8" [style]="numberStyle" [(ngModel)]="client.address.houseNumber" type="search" class="form-control" id="houseNumber" aria-label="houseNumber" placeholder="پلاک">
                   </div>
                 </div>
               </div>
               <div class="row" style="margin-top: 20px;">
                 <div style="text-align: center;">
-                  <a class="btn" id="createClient" (click)="saveClient()" routerLink="/edit-client">ثبت اطلاعات</a>
+                  <a class="btn" id="createClient" (click)="saveClient()" >ثبت اطلاعات</a>
                 </div>
               </div>
             </div>
