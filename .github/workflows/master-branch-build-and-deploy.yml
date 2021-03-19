@@ -13,10 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Compile
+      - name: Set up Node
         uses: actions/setup-node@v2
         with:
           node-version: 7.3.0
+      - name: Compile
         run: npm install --aot=false
   Docker:
     runs-on: ubuntu-latest
