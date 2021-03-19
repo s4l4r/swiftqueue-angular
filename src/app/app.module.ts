@@ -31,13 +31,14 @@ import {PersianDatePickerComponent} from '../components/datepicker/persianDatePi
 import {BookPreviewComponent} from '../components/bookpreview/bookPreview.component';
 import {RegisterClientComponent} from '../components/registerClient/registerClient.component';
 import {NgSelect2Module} from 'ng-select2';
+import {SMSVerificationComponent} from '../components/SMSVerification/SMSVerification.component';
 
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, LoginComponent, NavbarComponent, RegNameComponent, AddPassComponent,
     SignupComponent, ConfirmPassComponent, UserProfileComponent, EditUserProfileComponent, FooterComponent,
     InfoComponent, AutoSuggestComponent, ClientComponent, ScheduleComponent, PersianDatePickerComponent, BookPreviewComponent,
-    RegisterClientComponent
+    RegisterClientComponent, SMSVerificationComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, OAuthModule.forRoot(), NgxUiLoaderModule,

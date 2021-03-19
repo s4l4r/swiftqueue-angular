@@ -3,6 +3,7 @@ import {User} from '../../../dtos/user/user';
 import {AppService} from '../../../app/app.service';
 import {Router} from '@angular/router';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {HttpParams} from '@angular/common/http';
 
 @Component({
   selector: 'app-confirmpassword',
@@ -64,7 +65,16 @@ export class ConfirmPassComponent {
       this.ngxService.start();
       setTimeout(() => {
         this.ngxService.stop();
-        this.router.navigate(['/login']).then(() => $('#btn-confirmpass').html('ثبت اطلاعات'));
+        const resourceLocation = response.headers.get('Location') as string;
+        const pathSegments = resourceLocation.split('/');
+        const userId = pathSegments[pathSegments.length - 1];
+        const params = new HttpParams();
+        params.append('userId', userId);
+        this.service.postResourceWithParams('/api/v1/users/start-verify', null, params, true)
+          .subscribe(verificationResponse => {
+            this.router.navigate(['/verify-user'], {state: {verificationCode: verificationResponse.body}})
+              .then(() => $('#btn-confirmpass').html('ثبت اطلاعات'));
+          });
       }, 2000);
     } else {
       $('#btn-confirmpass').html('ثبت اطلاعات');

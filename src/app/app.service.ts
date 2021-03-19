@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Cookie} from 'ng2-cookies';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {EncryptionService} from '../util/EncryptionService';
+import {URLSearchParams} from 'url';
 
 @Injectable()
 export class AppService {
@@ -56,6 +57,18 @@ export class AppService {
     }
     headers = headers.append(this.SWIFT_QUEUE_AUTHORIZATION_HEADER_NAME, this.encryptionService.encrypt(this.USER_SIGNUP_TOKEN));
     return this.http.post(this.SERVER_BASE_URL + resourceUrl, resource, {headers, observe: 'response'});
+  }
+
+  postResourceWithParams(resourceUrl: string, resource: any, requestParams: HttpParams, authorized: boolean): Observable<any> {
+    let headers = new HttpHeaders({
+      'Content-type': 'application/json; charset=utf-8'
+    });
+    if (authorized) {
+      headers = headers.append('Authorization', 'Bearer ' + this.encryptionService.decrypt(Cookie.get('access_token')));
+    }
+    headers = headers.append(this.SWIFT_QUEUE_AUTHORIZATION_HEADER_NAME, this.encryptionService.encrypt(this.USER_SIGNUP_TOKEN));
+    return this.http.post(this.SERVER_BASE_URL + resourceUrl, resource,
+      {headers, observe: 'response', params: requestParams});
   }
 
   putResource(resourceUrl: string, resource: any): Observable<any> {
