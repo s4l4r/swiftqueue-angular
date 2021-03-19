@@ -39,8 +39,8 @@ jobs:
         with:
           push: true
           tags: swiftqueuetest/swiftqueue-angular:${{ github.sha }},swiftqueuetest/swiftqueue-angular:latest
-          context: target/
-          file: target/Dockerfile
+          context: ./
+          file: ./Dockerfile
   Deploy:
     runs-on: ubuntu-latest
     needs: Docker
