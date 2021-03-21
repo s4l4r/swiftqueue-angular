@@ -3,6 +3,14 @@
   direction: ltr;
 }
 
+:host ::ng-deep .stage.fa-user {
+  filter: invert(52%) sepia(11%) saturate(6381%) hue-rotate(327deg) brightness(97%) contrast(74%);
+}
+
+.container {
+  margin-top: 20px;
+}
+
 #regnameform > .input-group > input {
   direction: rtl;
   text-align: center;
@@ -58,4 +66,10 @@
   outline: none !important;
   border-color: rgb(217, 99, 93);
   box-shadow: 0 0 10px rgb(217, 99, 93);
+}
+
+@media only screen and (max-width: 768px) {
+  #mainCard {
+    margin-top: 5px;
+  }
 }

@@ -1,0 +1,49 @@
+<div dir="rtl" class="container">
+  <div class="row gutters">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="account-settings">
+            <div class="user-profile" style="text-align: center;">
+              <app-stage-illustrator></app-stage-illustrator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" id="mainCard">
+      <div class="card h-100">
+        <div class="card-body" style="">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div dir="rtl" id="signupbox" style="margin-top:50px; margin-left: auto; margin-right: auto;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+              <div class="card">
+                <div style="text-align: center;" *ngIf="serverError">
+                  <label class="alert alert-danger">مشکل در دریافت اطلاعات. دوباره سعی کنید</label>
+                </div>
+                <div *ngIf="!isLoaded" class="spinner-border text-white" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="successCreationAlert" *ngIf="showSuccess" class="alert alert-success">
+                  <p>{{successMessage}}</p>
+                  <span></span>
+                </div>
+                <form id="smsVerifyForm" name="signupForm" class="form-horizontal" role="form" aria-label="smsVerify">
+                  <h6 style="margin-left: auto; margin-right: auto; margin-bottom: 20px; color: rgb(217, 99, 93);">کد ارسال شده به شماره موبایل&nbsp;{{verifyRequest.userInfo.username}}&nbsp; را وارد کنید</h6>
+                  <div class="input-group">
+                    <input autofocus tabindex="8" type="text" class="form-control" style="text-align: center;" id="code" name="code" placeholder="کد ارسال شده" [(ngModel)]="verifyRequest.code">
+                  </div>
+                  <label *ngIf="invalidCode" id="errorLabel" class="input-group-text badge bg-danger">{{errorMessage}}</label>
+                  <div class="form-group" style="margin-top: 10px;">
+                    <div class="card">
+                      <button dir="rtl" class="btn" tabindex="10" id="verifySMSCode" (keyup.enter)="verifyUserSMSCode()" (click)="verifyUserSMSCode()">تایید و فعالسازی</button>
+                    </div>
+                  </div>
+                </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+.next-left {
+  font-size: 30px;
+  display: none;
+}
+
+.next-down {
+  font-size: 8px;
+}
+
+.stage {
+  font-size: 30px;
+  display: block;
+}
+
+@media only screen and (max-width: 768px) {
+  .next-left {
+    font-size: 12px;
+    display: flex;
+    margin-top: 6px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .fa-mobile, .fa-user, .fa-key, .fa-sms, .fa-check {
+    font-size: 23px;
+    display: inline-flex;
+  }
+
+  .stage-group {
+    max-width: max-content;
+    width: fit-content;
+    margin: 0;
+    display: inline-flex;
+  }
+
+  .next-down {
+    font-size: 8px;
+    display: none !important;
+  }
+}
