@@ -13,7 +13,6 @@ import {NavbarComponent} from '../components/navbar/navbar.component';
 import {RegNameComponent} from '../components/signup/regname/regName.component';
 import {AddPassComponent} from '../components/signup/addpass/addPass.component';
 import {SignupComponent} from '../components/signup/signup/signup.component';
-import {ConfirmPassComponent} from '../components/signup/confirmpass/confirmPass.component';
 import {NgxUiLoaderModule} from 'ngx-ui-loader';
 import {NumberConverter} from '../util/NumberConverter';
 import {EncryptionService} from '../util/EncryptionService';
@@ -32,13 +31,14 @@ import {BookPreviewComponent} from '../components/bookpreview/bookPreview.compon
 import {RegisterClientComponent} from '../components/registerClient/registerClient.component';
 import {NgSelect2Module} from 'ng-select2';
 import {SMSVerificationComponent} from '../components/SMSVerification/SMSVerification.component';
+import {RegisterStageIllustrationComponent} from '../components/signup/stageIllustration/registerStageIllustration.component';
 
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, LoginComponent, NavbarComponent, RegNameComponent, AddPassComponent,
-    SignupComponent, ConfirmPassComponent, UserProfileComponent, EditUserProfileComponent, FooterComponent,
+    SignupComponent, UserProfileComponent, EditUserProfileComponent, FooterComponent,
     InfoComponent, AutoSuggestComponent, ClientComponent, ScheduleComponent, PersianDatePickerComponent, BookPreviewComponent,
-    RegisterClientComponent, SMSVerificationComponent
+    RegisterClientComponent, SMSVerificationComponent, RegisterStageIllustrationComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, OAuthModule.forRoot(), NgxUiLoaderModule,

@@ -5,7 +5,6 @@ import {RegNameComponent} from '../components/signup/regname/regName.component';
 import {AddPassComponent} from '../components/signup/addpass/addPass.component';
 import {HomeComponent} from '../components/home/home.component';
 import {SignupComponent} from '../components/signup/signup/signup.component';
-import {ConfirmPassComponent} from '../components/signup/confirmpass/confirmPass.component';
 import {UserProfileComponent} from '../components/userProfile/userProfile.component';
 import {EditUserProfileComponent} from '../components/editUserProfile/editUserProfile.component';
 import {InfoComponent} from '../components/info/info.component';
@@ -22,7 +21,6 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'regname', component: RegNameComponent },
   { path: 'addpass', component: AddPassComponent },
-  { path: 'confirmpass', component: ConfirmPassComponent },
   { path: 'user-profile', component: UserProfileComponent},
   { path: 'edit-user-profile', component: EditUserProfileComponent },
   { path: 'info', component: InfoComponent },

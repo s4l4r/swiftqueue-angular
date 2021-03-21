@@ -1,9 +1,7 @@
 import {Component} from '@angular/core';
-import {User} from '../../dtos/user/user';
-import {VerificationCode} from '../../dtos/auth/verificationCode';
 import {AppService} from '../../app/app.service';
 import {Router} from '@angular/router';
-import {HttpParams} from '@angular/common/http';
+import {OtpVerifyRequest} from '../../dtos/auth/otpVerifyRequest';
 
 @Component({
   selector: 'app-sms-verification',
@@ -11,40 +9,47 @@ import {HttpParams} from '@angular/common/http';
   styleUrls: ['./SMSVerification.component.css']
 })
 export class SMSVerificationComponent {
-  user: User = new User();
-  verificationCode: VerificationCode = new VerificationCode();
+  verifyRequest: OtpVerifyRequest = new OtpVerifyRequest();
   isLoaded = false;
   serverError = false;
   errorMessage = 'کد نامعتبر';
   invalidCode = false;
+  showSuccess = false;
+  successMessage = 'ثبت نام با موفقیت انجام شد. در حال انتقال به صفحه ورود...';
   constructor(private service: AppService, private router: Router) {
-    if (history.state.user === undefined) {
+    if (history.state.username === undefined) {
       this.router.navigate(['/login']).then(r => r);
     }
-    this.verificationCode = history.state.verificationCode;
-    this.service.getCurrentLoggedInUser().subscribe(response => {
-      this.user = response.body;
-      this.isLoaded = true;
-      this.verifyUserSMSCode(this.verificationCode.code, this.user.id);
-    }, () => {
-      this.serverError = true;
-      this.isLoaded = true;
-    });
+    this.verifyRequest.userInfo.username = history.state.username;
+    this.isLoaded = true;
+    this.serverError = false;
   }
 
-  verifyUserSMSCode(code: string, userId: number): void {
-    const params = new HttpParams();
-    params.append('userId', userId.toString());
-    this.service.postResourceWithParams('/api/v1/users/verify', null, params, true)
+  verifyUserSMSCode(): void {
+    const verifyButton = $('#verifySMSCode');
+    verifyButton.html('<div class="spinner-border text-dark" role="status">\n' +
+      '  <span class="visually-hidden">Loading...</span>\n' +
+      '</div>');
+    if (this.verifyRequest.code === '' || this.verifyRequest.code === undefined) {
+      verifyButton.html('تایید و فعالسازی');
+      return;
+    }
+    this.service.postResource('/api/v1/otp/verify-sms', this.verifyRequest, false)
       .subscribe(response => {
         if (response.body === true) {
           this.serverError = false;
           this.invalidCode = false;
-          // UI Green checks that user sign up has activated
+          this.showSuccess = true;
+          this.router.navigate(['/login'], {state: {signupSuccess: true}}).then(() => verifyButton.html('تایید و فعالسازی'));
         } else {
           this.invalidCode = true;
           this.serverError = false;
+          this.showSuccess = false;
+          verifyButton.html('تایید و فعالسازی');
         }
+      }, () => {
+
+        verifyButton.html('تایید و فعالسازی');
       });
   }
 }

@@ -5,8 +5,10 @@
         <div class="card-title">ورود به حساب کاربری</div>
         <div style="float:left; font-size: 80%; position: relative; top:-10px"><a href="#">فراموش رمز عبور</a></div>
       </div>
-      <div style="padding-top:30px" class="card-body" >
+      <div style="padding-top:15px" class="card-body" >
+        <div *ngIf="hint" class="alert"><a id="verifySMSCode" class="btn btn-primary" style="cursor: pointer;" (click)="verifyUser()">فعالسازی حساب کاربری</a></div>
         <div *ngIf="loginError" id="login-alert" class="alert alert-danger col-sm-12">{{loginErrorMessage}}</div>
+        <div *ngIf="showSignupMessage" id="signup-success" class="alert alert-success col-sm-12">حساب کاربری با موفقعیت فعال شد</div>
         <form id="loginform" class="form-horizontal" role="form">
           <div dir="ltr" style="margin-bottom: 25px" class="input-group">
             <span class="input-group-text" id="userAddon"><em class="fa fa-user"></em></span>

@@ -17,10 +17,10 @@ export class AppService {
   }
 
   obtainAccessToken(loginData: any): Observable<any>{
-    const params = new URLSearchParams();
-    params.append('username', loginData.username);
-    params.append('password', loginData.password);
-    params.append('grant_type', 'password');
+    const params = new HttpParams()
+      .set('username', loginData.username)
+      .set('password', loginData.password)
+      .set('grant_type', 'password');
 
     let headers = new HttpHeaders({
       'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
