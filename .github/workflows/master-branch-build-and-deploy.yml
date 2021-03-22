@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 7.3.0
       - name: Compile
-        run: npm install --aot=false
+        run: npm install
   Docker:
     runs-on: ubuntu-latest
     needs: Build
