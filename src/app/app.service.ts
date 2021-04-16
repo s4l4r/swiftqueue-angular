@@ -23,7 +23,7 @@ export class AppService {
 
     let headers = new HttpHeaders({
       'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
-      Authorization: 'Basic ' + btoa('swiftqueue-angular:secret')
+      Authorization: 'Basic ' + btoa('swiftqueue-angular:2ef)Jf1VE%')
     });
     headers = headers.append(this.SWIFT_QUEUE_AUTHORIZATION_HEADER_NAME, this.encryptionService.encrypt(this.USER_SIGNUP_TOKEN));
     return this.http.post(this.SERVER_BASE_URL + '/oauth/token', params.toString(), {headers});
