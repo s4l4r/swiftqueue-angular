@@ -53,9 +53,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy to Production
-        uses: steebchen/kubectl@master
-        env:
-          # A base-64 representation of ~/.kube/config file
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        uses: WyriHaximus/github-action-helm3@v2
         with:
-          args: set image deployment/swiftqueue-angular swiftqueue-angular=swiftqueuetest/swiftqueue-angular:${{ github.sha }} -n swiftqueue
+          exec: helm upgrade swiftqueue ./helm/swiftqueue --set-string image.tag=${{ github.sha }}
+          kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
