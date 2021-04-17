@@ -1,7 +1,7 @@
 name: 'Nightly Artifacts Cleanup'
 on:
   schedule:
-    - cron: '0 1 * * *' # every night at 1 AM UTC
+    - cron: '0 0 * * *' # every night at 0 UTC
 
 jobs:
   delete-artifacts:
