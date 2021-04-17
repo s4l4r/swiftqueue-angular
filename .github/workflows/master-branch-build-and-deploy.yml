@@ -55,5 +55,5 @@ jobs:
       - name: Deploy to Production
         uses: WyriHaximus/github-action-helm3@v2
         with:
-          exec: helm upgrade swiftqueue ./helm/swiftqueue --set-string image.tag=${{ github.sha }}
+          exec: helm upgrade swiftqueue-angular ./helm/swiftqueue-angular --set-string image.tag=${{ github.sha }}
           kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
