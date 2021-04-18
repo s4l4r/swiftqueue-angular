@@ -3,6 +3,14 @@
   direction: ltr;
 }
 
+:host ::ng-deep .fa-key {
+  filter: invert(52%) sepia(11%) saturate(6381%) hue-rotate(327deg) brightness(97%) contrast(74%);
+}
+
+.container {
+  margin-top: 20px;
+}
+
 .btn {
   color: ghostwhite;
 }
@@ -31,7 +39,7 @@
   margin-right: auto;
 }
 
-#errorLabel {
+#errorLabel, #confirmErrorLabel {
   white-space: normal !important;
 }
 
@@ -44,12 +52,12 @@
   color: white;
 }
 
-#previousStep, #btn-addpass {
+#previousStep, #btn-addpass, #createUser {
   background-color: rgb(217, 99, 93);
   border-radius: 30px;
 }
 
-#previousStep:hover, #btn-addpass:hover {
+#previousStep:hover, #btn-addpass:hover, #createUser:hover {
   color: black !important;
   transition: color 0.1s ease-in !important;
 }
@@ -58,4 +66,10 @@
   outline: none !important;
   border-color: rgb(217, 99, 93);
   box-shadow: 0 0 10px rgb(217, 99, 93);
+}
+
+@media only screen and (max-width: 768px){
+  #mainCard {
+    margin-top: 5px;
+  }
 }

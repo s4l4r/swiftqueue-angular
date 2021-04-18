@@ -5,7 +5,6 @@ import {RegNameComponent} from '../components/signup/regname/regName.component';
 import {AddPassComponent} from '../components/signup/addpass/addPass.component';
 import {HomeComponent} from '../components/home/home.component';
 import {SignupComponent} from '../components/signup/signup/signup.component';
-import {ConfirmPassComponent} from '../components/signup/confirmpass/confirmPass.component';
 import {UserProfileComponent} from '../components/userProfile/userProfile.component';
 import {EditUserProfileComponent} from '../components/editUserProfile/editUserProfile.component';
 import {InfoComponent} from '../components/info/info.component';
@@ -13,7 +12,8 @@ import {ClientComponent} from '../components/client/client.component';
 import {ScheduleComponent} from '../components/schdule/schedule.component';
 import {BookPreviewComponent} from '../components/bookpreview/bookPreview.component';
 import {RegisterClientComponent} from '../components/registerClient/registerClient.component';
-import {EditClientComponent} from "../components/editClient/editClient.component";
+import {SMSVerificationComponent} from '../components/SMSVerification/SMSVerification.component';
+import {EditClientComponent} from '../components/editClient/editClient.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -22,7 +22,6 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'regname', component: RegNameComponent },
   { path: 'addpass', component: AddPassComponent },
-  { path: 'confirmpass', component: ConfirmPassComponent },
   { path: 'user-profile', component: UserProfileComponent},
   { path: 'edit-user-profile', component: EditUserProfileComponent },
   { path: 'info', component: InfoComponent },
@@ -30,6 +29,7 @@ const routes: Routes = [
   { path: 'schedule/:clientId/:id', component: ScheduleComponent },
   { path: 'booking-preview', component: BookPreviewComponent },
   { path: 'register-client', component: RegisterClientComponent },
+  { path: 'verify-user', component: SMSVerificationComponent },
   { path: 'edit-client', component: EditClientComponent }
   ];
 

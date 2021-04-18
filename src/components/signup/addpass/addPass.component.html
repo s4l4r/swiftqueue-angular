@@ -1,30 +1,46 @@
 <div dir="rtl" class="container">
-  <div dir="rtl" id="addpassbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">اضافه کردن رمز عبور</div>
+  <div class="row gutters">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="account-settings">
+            <div class="user-profile" style="text-align: center;">
+              <app-stage-illustrator></app-stage-illustrator>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card-body" >
-        <form id="addpassform" class="form-horizontal" role="form">
-          <div id="addpassalert" style="display:none" class="alert alert-danger">
-            <p>Error:</p>
-            <span></span>
-          </div>
-          <div class="input-group">
-            <input autofocus tabindex="8" [style]="passwordBorderStyle" type="password" class="form-control" id="password" name="password" placeholder="رمز عبور" [(ngModel)]="user.password">
-          </div>
-          <label id="errorLabel" class="input-group-text badge bg-danger">{{passwordErrorMessage}}</label>
-          <div class="form-group" style="margin-top: 25px;">
-            <div class="card">
-              <button tabindex="9" id="btn-addpass" class="btn" (keyup.enter)="nextStep()" (click)="nextStep()">مرحله بعد</button>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" id="mainCard">
+      <div class="card h-100">
+        <div class="card-body" style="">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div dir="rtl" id="addpassbox" style="margin-top:50px; margin-left: auto; margin-right: auto;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+              <div class="card" style="border: none;">
+                <form id="addpassform" class="form-horizontal" role="form">
+                    <div class="input-group">
+                      <input autofocus tabindex="8" [style]="passwordBorderStyle" type="password" class="form-control" id="password" name="password" placeholder="رمز عبور" [(ngModel)]="user.password">
+                    </div>
+                    <label id="errorLabel" class="input-group-text badge bg-danger">{{passwordErrorMessage}}</label>
+                    <div class="input-group" style="margin-top: 10px;">
+                      <input tabindex="8" [style]="confirmPassBorderStyle" type="password" class="form-control" id="confirmpassword" name="confirmPassword" placeholder="نکرار رمز عبور" [(ngModel)]="confirmPassword">
+                    </div>
+                    <label id="confirmErrorLabel" class="input-group-text badge bg-danger">{{confirmPassErrorMessage}}</label>
+                    <div class="form-group" style="margin-top: 25px;">
+                      <div class="card" style="border: none;">
+                        <button tabindex="9" id="createUser" class="btn" (keyup.enter)="createUser()" (click)="createUser()">ثبت اطلاعات</button>
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;">
+                      <div class="card" style="border: none;">
+                        <a tabindex="10" dir="rtl" class="btn" id="previousStep" (keyup.enter)="previousStep()" (click)="previousStep()">مرحله قبل</a>
+                      </div>
+                    </div>
+                </form>
+              </div>
             </div>
           </div>
-          <div class="form-group" style="margin-top: 10px;">
-            <div class="card">
-              <a tabindex="10" dir="rtl" class="btn" id="previousStep" (keyup.enter)="previousStep()" (click)="previousStep()">مرحله قبل</a>
-            </div>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>

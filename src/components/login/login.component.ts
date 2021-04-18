@@ -6,6 +6,7 @@ import {take} from 'rxjs/operators';
 import {Cookie} from 'ng2-cookies';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {EncryptionService} from '../../util/EncryptionService';
+import {HttpParams} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -17,12 +18,18 @@ export class LoginComponent implements OnInit{
   userNameFieldBorderStyle = '';
   passwordFieldBorderStyle = '';
   loginError = false;
+  showSignupMessage = false;
   loginErrorMessage = '';
+  hint = false;
+  hintMessage = '';
 
   constructor(private service: AppService, private router: Router, private ngxService: NgxUiLoaderService,
               private encryptionService: EncryptionService) {
     if (this.ngxService.getLoader() !== null) {
       ngxService.stop();
+    }
+    if (history.state.signupSuccess) {
+      this.showSignupMessage = true;
     }
   }
 
@@ -43,11 +50,26 @@ export class LoginComponent implements OnInit{
       loginButton.html('ورود');
       return;
     }
+    this.getAccessToken();
+  }
+
+  getAccessToken(): void {
     this.service.obtainAccessToken({username: this.user.username, password: this.user.password})
-      .subscribe(data => this.saveToken(data, this.user.username), error => {
-        loginButton.html('ورود');
+      .subscribe(data => {
+        this.service.getResourceAsync('/api/v1/users/enabled/' + this.user.username, false)
+          .subscribe(response => {
+            if (response.body === false) {
+              this.loginError = false;
+              this.hintAccountDisabled();
+              $('#btn-login').html('ورود');
+            } else {
+              this.saveToken(data, this.user.username);
+            }
+          });
+      }, error => {
+        $('#btn-login').html('ورود');
         this.handleLoginError(error);
-    });
+      });
   }
 
   validateLogin(): boolean {
@@ -87,12 +109,35 @@ export class LoginComponent implements OnInit{
   handleLoginError(error: any): void {
     this.loginError = true;
     switch (error.status) {
+      case 400:
       case 401:
         this.loginErrorMessage = 'نام کاربری و یا رمز عبور اشتباه است';
         break;
       case 500:
-        this.loginErrorMessage = 'سرور قادر به پاسخگویی نیست. لطفا دوباره سعی کنید';
+        this.loginErrorMessage = 'سرور قادر به پاسخگویی نیست. لطفا دوباره امتحان کنید';
         break;
     }
+    $('#btn-login').html('ورود');
+  }
+
+  hintAccountDisabled(): void {
+    this.hint = true;
+    this.hintMessage = 'فعالسازی کاربری غیرفعال است.';
+  }
+
+  verifyUser(): void {
+    const verifyButton = $('#verifySMSCode');
+    verifyButton.html('<div class="spinner-border text-dark" role="status">\n' +
+      '  <span class="visually-hidden">Loading...</span>\n' +
+      '</div>');
+    const params = new HttpParams()
+      .set('username', this.user.username);
+    this.service.postResourceWithParams('/api/v1/otp/send-sms', null, params, false)
+      .subscribe(() => {
+        this.router.navigate(['/verify-user'], {state: {username: this.user.username}})
+          .then(() => verifyButton.html('فعالسازی حساب کاربری'));
+      }, () => {
+        location.reload();
+      });
   }
 }

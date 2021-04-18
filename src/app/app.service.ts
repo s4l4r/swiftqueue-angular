@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Cookie} from 'ng2-cookies';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
@@ -16,14 +16,14 @@ export class AppService {
   }
 
   obtainAccessToken(loginData: any): Observable<any>{
-    const params = new URLSearchParams();
-    params.append('username', loginData.username);
-    params.append('password', loginData.password);
-    params.append('grant_type', 'password');
+    const params = new HttpParams()
+      .set('username', loginData.username)
+      .set('password', loginData.password)
+      .set('grant_type', 'password');
 
     let headers = new HttpHeaders({
       'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
-      Authorization: 'Basic ' + btoa('swiftqueue-angular:=Q9=T5@C*(eCk"mL')
+      Authorization: 'Basic ' + btoa('swiftqueue-angular:2ef)Jf1VE%')
     });
     headers = headers.append(this.SWIFT_QUEUE_AUTHORIZATION_HEADER_NAME, this.encryptionService.encrypt(this.USER_SIGNUP_TOKEN));
     return this.http.post(this.SERVER_BASE_URL + '/oauth/token', params.toString(), {headers});
@@ -56,6 +56,18 @@ export class AppService {
     }
     headers = headers.append(this.SWIFT_QUEUE_AUTHORIZATION_HEADER_NAME, this.encryptionService.encrypt(this.USER_SIGNUP_TOKEN));
     return this.http.post(this.SERVER_BASE_URL + resourceUrl, resource, {headers, observe: 'response'});
+  }
+
+  postResourceWithParams(resourceUrl: string, resource: any, requestParams: HttpParams, authorized: boolean): Observable<any> {
+    let headers = new HttpHeaders({
+      'Content-type': 'application/json; charset=utf-8'
+    });
+    if (authorized) {
+      headers = headers.append('Authorization', 'Bearer ' + this.encryptionService.decrypt(Cookie.get('access_token')));
+    }
+    headers = headers.append(this.SWIFT_QUEUE_AUTHORIZATION_HEADER_NAME, this.encryptionService.encrypt(this.USER_SIGNUP_TOKEN));
+    return this.http.post(this.SERVER_BASE_URL + resourceUrl, resource,
+      {headers, observe: 'response', params: requestParams});
   }
 
   putResource(resourceUrl: string, resource: any): Observable<any> {
