@@ -129,12 +129,12 @@
   color: white;
 }
 
-#editUserInfo, .cancelButton, #createClient {
+#editUserInfo, .cancelButton, #updateClient {
   background-color: rgb(217, 99, 93);
   border-radius: 30px;
 }
 
-#editUserInfo:hover, .cancelButton:hover, #createClient:hover {
+#editUserInfo:hover, .cancelButton:hover, #updateClient:hover {
   color: black !important;
   transition: color 0.1s ease-in !important;
 }

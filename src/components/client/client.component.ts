@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectorRef, Component} from '@angular/core';
+import {Component} from '@angular/core';
 import {Client} from '../../dtos/user/client';
 import {AppService} from '../../app/app.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -68,11 +68,7 @@ export class ClientComponent {
       });
   }
 
-  getAvailableTimeSlotsCount(schedule: Schedule): number {
-    return schedule.timeSlots.filter(i => !i.reserved).length;
-  }
-
-  updateClientInformations(): void {
+  updateClientInformation(): void {
     this.router.navigate(['/edit-client'], {state: {client: this.client}}).then(r => r);
   }
 }
