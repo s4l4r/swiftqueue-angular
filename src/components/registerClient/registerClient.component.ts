@@ -22,7 +22,8 @@ export class RegisterClientComponent implements AfterViewInit {
   provinces: Observable<Array<Select2OptionData>> = new Observable<Array<Select2OptionData>>();
   cities: Observable<Array<Select2OptionData>> = new Observable<Array<Select2OptionData>>();
   selectedValue: Observable<Select2OptionData> = new Observable<Select2OptionData>();
-  nameStyle = ''; phoneStyle = ''; cityStyle = ''; streetStyle = ''; numberStyle = '';
+  nameStyle = ''; phoneStyle = '';
+  streetStyle = ''; numberStyle = '';
 
   constructor(private service: AppService, private refChange: ChangeDetectorRef, private router: Router) {
     this.service.checkCredentials();

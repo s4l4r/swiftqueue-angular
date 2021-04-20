@@ -29,6 +29,7 @@ import {DpDatePickerModule} from 'ng2-jalali-date-picker';
 import {PersianDatePickerComponent} from '../components/datepicker/persianDatePicker.component';
 import {BookPreviewComponent} from '../components/bookpreview/bookPreview.component';
 import {RegisterClientComponent} from '../components/registerClient/registerClient.component';
+import {EditClientComponent} from '../components/editClient/editClient.component';
 import {NgSelect2Module} from 'ng-select2';
 import {SMSVerificationComponent} from '../components/SMSVerification/SMSVerification.component';
 import {RegisterStageIllustrationComponent} from '../components/signup/stageIllustration/registerStageIllustration.component';
@@ -38,7 +39,7 @@ import {RegisterStageIllustrationComponent} from '../components/signup/stageIllu
     AppComponent, HomeComponent, LoginComponent, NavbarComponent, RegNameComponent, AddPassComponent,
     SignupComponent, UserProfileComponent, EditUserProfileComponent, FooterComponent,
     InfoComponent, AutoSuggestComponent, ClientComponent, ScheduleComponent, PersianDatePickerComponent, BookPreviewComponent,
-    RegisterClientComponent, SMSVerificationComponent, RegisterStageIllustrationComponent
+    RegisterClientComponent, EditClientComponent, SMSVerificationComponent, RegisterStageIllustrationComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, OAuthModule.forRoot(), NgxUiLoaderModule,

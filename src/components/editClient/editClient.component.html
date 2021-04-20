@@ -1,0 +1,80 @@
+<div dir="rtl" class="container">
+  <div class="row gutters">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="account-settings">
+            <div *ngIf="!isLoaded" class="spinner-border text-white" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <div *ngIf="isLoaded" class="user-profile">
+              <div class="user-avatar">
+                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="{{user.firstName}}&nbsp;{{user.lastName}}">
+              </div>
+              <h5 class="user-name">{{user.firstName}}&nbsp;{{user.lastName}}</h5>
+              <h6 class="user-phone">{{user.username}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" id="mainCard">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div style="text-align: center;">
+                <label *ngIf="serverError" class="alert alert-danger">مشکل در ارتباط با سرور. دوباره سعی کنید</label>
+              </div>
+              <div *ngIf="!isLoaded" class="spinner-border text-white" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <h6 class="mb-3 text-primary">اصلاح مرکز ارائه دهنده سرویس</h6>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <input tabindex="8" [style]="nameStyle" [(ngModel)]="newClient.name" type="search" class="form-control" id="name" aria-label="Name" placeholder="نام">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <input tabindex="8" [style]="phoneStyle" [(ngModel)]="newClient.address.phoneNumber" type="search" class="form-control" id="phoneNumber" aria-label="PhoneNumber" placeholder="شماره تلفن">
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 10px;">
+                <div class="col-xl-6 ol-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <ng-select2 tabindex="8" dir="rtl" (valueChanged)="loadCities($event)" [ngModel]="selectedProvince | async"  [data]="provinces | async" id="province" placeholder="استان"></ng-select2>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <ng-select2 tabindex="8" dir="rtl" (valueChanged)="updateSelectedCity($event)" [ngModel]="selectedCity | async" [data]="cities | async" id="city" placeholder="شهر" required></ng-select2>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 10px;">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <input tabindex="8" [style]="streetStyle" [(ngModel)]="newClient.address.street" type="search" class="form-control" id="street" aria-label="Street" placeholder="خیابان">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <input tabindex="8" [style]="numberStyle" [(ngModel)]="newClient.address.houseNumber" type="search" class="form-control" id="houseNumber" aria-label="houseNumber" placeholder="پلاک">
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 20px;">
+                <div style="text-align: center;">
+                  <a class="btn" id="updateClient" (click)="updateClient()" >ثبت اطلاعات</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

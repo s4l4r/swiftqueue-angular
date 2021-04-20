@@ -13,6 +13,7 @@ import {ScheduleComponent} from '../components/schdule/schedule.component';
 import {BookPreviewComponent} from '../components/bookpreview/bookPreview.component';
 import {RegisterClientComponent} from '../components/registerClient/registerClient.component';
 import {SMSVerificationComponent} from '../components/SMSVerification/SMSVerification.component';
+import {EditClientComponent} from '../components/editClient/editClient.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'schedule/:clientId/:id', component: ScheduleComponent },
   { path: 'booking-preview', component: BookPreviewComponent },
   { path: 'register-client', component: RegisterClientComponent },
-  { path: 'verify-user', component: SMSVerificationComponent }
+  { path: 'verify-user', component: SMSVerificationComponent },
+  { path: 'edit-client', component: EditClientComponent }
   ];
 
 @NgModule({

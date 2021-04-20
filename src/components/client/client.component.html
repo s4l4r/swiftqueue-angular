@@ -18,6 +18,9 @@
             <div *ngIf="client.userInfo.id === user.id" style="text-align: center; margin-top: 10px;">
               <a class="btn" id="createSchedule" routerLink="/register-client">ثبت زمانبندی جدید</a>
             </div>
+            <div *ngIf="client.userInfo.id === user.id" style="text-align: center; margin-top: 10px;">
+              <a class="btn" id="updateSchedule" (click)="updateClientInformation()" >اصلاح</a>
+            </div>
           </div>
         </div>
       </div>
