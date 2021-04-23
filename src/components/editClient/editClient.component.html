@@ -11,8 +11,10 @@
               <div class="user-avatar">
                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="{{user.firstName}}&nbsp;{{user.lastName}}">
               </div>
-              <h5 class="user-name">{{user.firstName}}&nbsp;{{user.lastName}}</h5>
-              <h6 class="user-phone">{{user.username}}</h6>
+              <h5 class="client-name">{{client.name}}</h5>
+              <h5 class="client-address">{{client.address.city.name}}&nbsp;&nbsp;-&nbsp;&nbsp;{{client.address.street}}</h5>
+              <h5 class="client-phone">{{client.address.phoneNumber}}</h5>
+              <h5 class="client-houseNumber">پلاک&nbsp;{{client.address.houseNumber}}</h5>
             </div>
           </div>
         </div>
