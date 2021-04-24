@@ -27,7 +27,7 @@ jobs:
         id: set-version
         run: |
           SNAPSHOT_VERSION=$(echo "${VERSION/version:/}")
-          VERSION=$(echo "${SNAPSHOT_VERSION/-SNAPSHOT/}")
+          VERSION=$(echo '${SNAPSHOT_VERSION/-SNAPSHOT",/}')
           echo "Preparing to release version ${VERSION}"
           echo ::set-output name=version::${VERSION}
   Docker:
