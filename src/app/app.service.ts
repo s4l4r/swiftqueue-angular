@@ -13,6 +13,9 @@ export class AppService {
   SWIFT_QUEUE_AUTHORIZATION_HEADER_NAME = 'SWIFT_QUEUE_AUTHORIZATION';
   constructor(private router: Router, private http: HttpClient, private ngxService: NgxUiLoaderService,
               private encryptionService: EncryptionService) {
+    setInterval(() => {
+      this.checkSession();
+    }, 100);
   }
 
   obtainAccessToken(loginData: any): Observable<any>{
@@ -114,7 +117,14 @@ export class AppService {
     Cookie.delete('firstName');
     Cookie.delete('user_id');
     Cookie.delete('username');
+    Cookie.delete('session_active');
     this.ngxService.stop();
     this.router.navigate(['/login']).then(r => r);
+  }
+
+  checkSession(): void {
+    if (!Cookie.check('access_token') && Cookie.check('session_active')) {
+      this.logout();
+    }
   }
 }

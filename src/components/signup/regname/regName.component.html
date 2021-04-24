@@ -19,10 +19,10 @@
               <div class="card" style="border: none;">
                 <form id="regnameform" class="form-horizontal" role="form">
                   <div class="input-group">
-                    <input autofocus [style]="firstNameBorderStyle" tabindex="8" type="text" class="form-control" id="firstname" name="firstname" placeholder="نام" [(ngModel)]="user.firstName">
+                    <input autocomplete="given-name" autofocus [style]="firstNameBorderStyle" tabindex="8" type="text" class="form-control" id="firstname" name="firstname" placeholder="نام" [(ngModel)]="user.firstName">
                   </div>
                   <div class="input-group">
-                    <input [style]="lastNameBorderStyle" tabindex="9" type="text" class="form-control" id="lastname" name="lastname" placeholder="نام خانوادگی" [(ngModel)]="user.lastName" >
+                    <input autocomplete="family-name" [style]="lastNameBorderStyle" tabindex="9" type="text" class="form-control" id="lastname" name="lastname" placeholder="نام خانوادگی" [(ngModel)]="user.lastName" >
                   </div>
                   <div class="form-group" style="margin-top: 25px;">
                     <!-- Button -->

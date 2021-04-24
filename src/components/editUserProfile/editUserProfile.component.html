@@ -30,12 +30,12 @@
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
               <div class="form-group">
-                <input tabindex="8" [(ngModel)]="newUser.firstName" type="search" class="form-control" id="firstName" aria-label="FirstName" placeholder="نام">
+                <input autocomplete="given-name" tabindex="8" [(ngModel)]="newUser.firstName" type="search" class="form-control" id="firstName" aria-label="FirstName" placeholder="نام">
               </div>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" id="lastnameDiv">
               <div class="form-group">
-                <input tabindex="9" [(ngModel)]="newUser.lastName" type="search" class="form-control" id="lastName" placeholder="نام خانوادگی">
+                <input tabindex="9" autocomplete="family-name" [(ngModel)]="newUser.lastName" type="search" class="form-control" id="lastName" placeholder="نام خانوادگی">
               </div>
             </div>
           </div>
