@@ -29,7 +29,7 @@ jobs:
           RAW_VERSION=$(echo $(grep version package.json))
           SNAPSHOT_VERSION=$(echo "${RAW_VERSION/"\""version"\"": "\""/}")
           VERSION=$(echo "${SNAPSHOT_VERSION/-SNAPSHOT"\"",/}")
-          echo "Preparing to release version ${VERSION}"
+          echo "Version ${VERSION} will be released!"
           echo ::set-output name=version::${VERSION}
   Docker:
     runs-on: ubuntu-latest
@@ -77,4 +77,4 @@ jobs:
       - name: Update Package Version
         run: |
           NEXT_VERSION=$(echo ${{needs.Build.outputs.version}} | awk -F. -v OFS=. '{$NF++;print}')-SNAPSHOT
-          sed -i 's/"version":"${{needs.Build.outputs.version}}"/"version":"${NEXT_VERSION}"/g'
+          sed -i 's/"version":"${{needs.Build.outputs.version}}"/"version":"${NEXT_VERSION}"/g' package.json
