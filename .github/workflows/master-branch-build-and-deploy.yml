@@ -77,4 +77,15 @@ jobs:
       - name: Update Package Version
         run: |
           NEXT_VERSION=$(echo ${{needs.Build.outputs.version}} | awk -F. -v OFS=. '{$NF++;print}')-SNAPSHOT
+          echo "Setting next snapshot version ${NEXT_VERSION}"
           sed -i 's/"version":"${{needs.Build.outputs.version}}"/"version":"${NEXT_VERSION}"/g' package.json
+      - name: Commit files
+        run: |
+          git config --local user.email "github@users.noreply.github.com"
+          git config --local user.name "Github CI/CD"
+          git commit -m "Updated Package for the next version" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
