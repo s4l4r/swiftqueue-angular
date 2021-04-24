@@ -12,6 +12,8 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.set-version.outputs.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -21,6 +23,14 @@ jobs:
           node-version: 7.3.0
       - name: Compile
         run: npm install
+      - name: Set Version
+        id: set-version
+        run: |
+          RAW_VERSION=$(echo $(grep version package.json))
+          SNAPSHOT_VERSION=$(echo "${RAW_VERSION/"\""version"\"": "\""/}")
+          VERSION=$(echo "${SNAPSHOT_VERSION/-SNAPSHOT"\"",/}")
+          echo "Preparing to release version ${VERSION}"
+          echo ::set-output name=version::${VERSION}
   Docker:
     runs-on: ubuntu-latest
     needs: Build
@@ -42,12 +52,12 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: swiftqueuetest/swiftqueue-angular:${{ github.sha }},swiftqueuetest/swiftqueue-angular:latest
+          tags: swiftqueuetest/swiftqueue-angular:${{needs.Build.outputs.version}},swiftqueuetest/swiftqueue-angular:latest
           context: ./
           file: ./Dockerfile
   Deploy:
     runs-on: ubuntu-latest
-    needs: Docker
+    needs: [Build, Docker]
     if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout
@@ -55,5 +65,16 @@ jobs:
       - name: Deploy to Production
         uses: WyriHaximus/github-action-helm3@v2
         with:
-          exec: helm upgrade swiftqueue-angular ./helm/swiftqueue-angular --set-string image.tag=${{ github.sha }}
+          exec: helm upgrade swiftqueue-angular ./helm/swiftqueue-angular --set-string image.tag=${{needs.Build.outputs.version}}
           kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
+  UpdateVersion:
+    runs-on: ubuntu-latest
+    needs: [Build, Deploy]
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update Package Version
+        run: |
+          NEXT_VERSION=$(echo ${{needs.Build.outputs.version}} | awk -F. -v OFS=. '{$NF++;print}')-SNAPSHOT
+          sed -i 's/"version":"${{needs.Build.outputs.version}}"/"version":"${NEXT_VERSION}"/g'
