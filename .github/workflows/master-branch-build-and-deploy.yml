@@ -76,5 +76,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Update Package Version
         run: |
-          NEXT_VERSION=$(echo ${{needs.Build.outputs.version}} | awk -F. -v OFS=. '{$NF++;print}')
+          NEXT_VERSION=$(echo ${{needs.Build.outputs.version}} | awk -F. -v OFS=. '{$NF++;print}')-SNAPSHOT
           sed -i 's/"version":"${{needs.Build.outputs.version}}"/"version":"${NEXT_VERSION}"/g'
