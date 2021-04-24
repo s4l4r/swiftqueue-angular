@@ -94,13 +94,16 @@ export class LoginComponent implements OnInit{
 
   saveToken(token: any, username: string): void {
     this.loginError = false;
-    const expireDate = Number(0.0416667);
+    // 30 Minute Session
+    const expireDate = new Date();
+    expireDate.setMinutes(expireDate.getMinutes() + 30);
     Cookie.set('access_token', this.encryptionService.encrypt(token.access_token), expireDate);
     this.service.getResourceAsync('/api/v1/users/' + username, true)
       .subscribe(response => {
         Cookie.set('firstName', response.body.firstName, expireDate);
         Cookie.set('username', response.body.username, expireDate);
         Cookie.set('user_id', response.body.id, expireDate);
+        Cookie.set('session_active', 'J58ED6JRY79087G4H7', );
         $('#btn-login').html('ورود');
       });
     this.router.navigate(['/']).then(() => $('#btn-login').html('ورود'));

@@ -20,7 +20,8 @@
                 <form id="signupform" name="signupForm" class="form-horizontal" role="form" aria-label="signup">
                   <div id="signupalert" *ngIf="signupError" class="alert alert-danger">{{signupErrorMessage}}</div>
                   <div class="input-group">
-                    <label for="phoneNumber" hidden></label><input [style]="signUpUsernameFieldBorderStyle" autofocus dir="rtl" tabindex="8" type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="شماره تلفن همراه" [(ngModel)]="user.username" oninput="this.value=this.value.replace(/[^0-9\s]/g,'');">
+                    <label for="phoneNumber" hidden></label>
+                    <input [style]="signUpUsernameFieldBorderStyle" autocomplete="tel-national" autofocus dir="rtl" tabindex="8" type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="شماره تلفن همراه" [(ngModel)]="user.username" oninput="this.value=this.value.replace(/[^0-9\s]/g,'');">
                   </div>
                   <label id="errorLabel" class="input-group-text badge bg-danger" style="margin-top: 5px;">{{usernameErrorMessage}}</label>
                   <div class="form-group" style="margin-top: 25px;">

@@ -12,11 +12,11 @@
         <form id="loginform" class="form-horizontal" role="form">
           <div dir="ltr" style="margin-bottom: 25px" class="input-group">
             <span class="input-group-text" id="userAddon"><em class="fa fa-user"></em></span>
-            <input autofocus (keyup.enter)="login()" tabindex="8" dir="rtl" [style.border]="userNameFieldBorderStyle!" id="login-username" type="text" class="form-control" name="username" aria-describedby="userAddon" placeholder="شماره تلفن" [(ngModel)]="user.username" oninput="this.value=this.value.replace(/[^0-9\s]/g,'');">
+            <input autocomplete="username" autofocus (keyup.enter)="login()" tabindex="8" dir="rtl" [style.border]="userNameFieldBorderStyle!" id="login-username" type="text" class="form-control" name="username" aria-describedby="userAddon" placeholder="شماره تلفن" [(ngModel)]="user.username" oninput="this.value=this.value.replace(/[^0-9\s]/g,'');">
           </div>
           <div dir="ltr" style="margin-bottom: 25px" class="input-group">
             <span class="input-group-text" id="passwordAddon"><em class="fa fa-lock"></em></span>
-            <input (keyup.enter)="login()" tabindex="9" dir="rtl" [style.border]="passwordFieldBorderStyle!" id="login-password" type="password" class="form-control" name="password" aria-describedby="passwordAddon" placeholder="رمز عبور" [(ngModel)]="user.password">
+            <input autocomplete="current-password" (keyup.enter)="login()" tabindex="9" dir="rtl" [style.border]="passwordFieldBorderStyle!" id="login-password" type="password" class="form-control" name="password" aria-describedby="passwordAddon" placeholder="رمز عبور" [(ngModel)]="user.password">
           </div>
           <div style="margin-top:10px" class="form-group">
             <!-- Button -->

@@ -19,11 +19,11 @@
               <div class="card" style="border: none;">
                 <form id="addpassform" class="form-horizontal" role="form">
                     <div class="input-group">
-                      <input autofocus tabindex="8" [style]="passwordBorderStyle" type="password" class="form-control" id="password" name="password" placeholder="رمز عبور" [(ngModel)]="user.password">
+                      <input autocomplete="new-password" autofocus tabindex="8" [style]="passwordBorderStyle" type="password" class="form-control" id="password" name="password" placeholder="رمز عبور" [(ngModel)]="user.password">
                     </div>
                     <label id="errorLabel" class="input-group-text badge bg-danger">{{passwordErrorMessage}}</label>
                     <div class="input-group" style="margin-top: 10px;">
-                      <input tabindex="8" [style]="confirmPassBorderStyle" type="password" class="form-control" id="confirmpassword" name="confirmPassword" placeholder="نکرار رمز عبور" [(ngModel)]="confirmPassword">
+                      <input autocomplete="new-password" tabindex="8" [style]="confirmPassBorderStyle" type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="نکرار رمز عبور" [(ngModel)]="confirmPassword">
                     </div>
                     <label id="confirmErrorLabel" class="input-group-text badge bg-danger">{{confirmPassErrorMessage}}</label>
                     <div class="form-group" style="margin-top: 25px;">
