@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit{
     this.loginError = false;
     // 30 Minute Session
     const expireDate = new Date();
-    expireDate.setMinutes(expireDate.getMinutes() + + 30);
+    expireDate.setMinutes(expireDate.getMinutes() + 30);
     Cookie.set('access_token', this.encryptionService.encrypt(token.access_token), expireDate);
     this.service.getResourceAsync('/api/v1/users/' + username, true)
       .subscribe(response => {
