@@ -26,8 +26,9 @@ jobs:
       - name: Set Version
         id: set-version
         run: |
-          SNAPSHOT_VERSION=$(echo "${VERSION/version:/}")
-          VERSION=$(echo '${SNAPSHOT_VERSION/-SNAPSHOT",/}')
+          RAW_VERSION=$(echo $(grep version package.json))
+          SNAPSHOT_VERSION=$(echo "${RAW_VERSION/"\""version"\"": "\""/}")
+          VERSION=$(echo "${SNAPSHOT_VERSION/-SNAPSHOT"\"",/}")
           echo "Preparing to release version ${VERSION}"
           echo ::set-output name=version::${VERSION}
   Docker:
