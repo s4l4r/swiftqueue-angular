@@ -79,7 +79,7 @@ jobs:
         run: |
           NEXT_VERSION=$(echo ${{needs.Build.outputs.version}} | awk -F. -v OFS=. '{$NF++;print}')-SNAPSHOT
           echo "Setting next snapshot version ${NEXT_VERSION}"
-          sed -i 's/"version": "${{needs.Build.outputs.version}}"/"version": "'$NEXT_VERSION'"/g' package.json
+          sed -i 's/"version": "${{needs.Build.outputs.version}}-SNAPSHOT"/"version": "'$NEXT_VERSION'"/g' package.json
       - name: Commit files
         run: |
           git config --local user.email "github@users.noreply.github.com"
